@@ -34,13 +34,29 @@
 \maketitle
 
 \begin{abstract}
-The paper...
+Over the past several years, Monte Carlo search techniques have gained in popularity 
+due to their ability to reduce computational load by efficiently estimating values 
+of subtrees.  
+There has been a focus on analysis of these search techniques on deterministic
+games, such as Go, Hex, and Lines of Action. 
+This paper presents a new way of sampling in two-player games with chance events, 
+such as Backgammon, adapted from sparse sampling techniques used in MDPs. 
+We introduce Monte Carlo *-Minimax Search (MCMS), an extension of the Ballard's 
+classic *-minimax algorithm that uses sparse sampling. 
+We present a thorough theoretical analysis of MCMS, giving a rate of convergence to the
+optimal strategy that does not depend on the number of states. 
+We show that sparse sample can be used in Monte Carlo Tree Search (MCTS), and compare it
+to a similar technique called double-progressive widening.
+We also present variance reduction techniques and show how they can be applied in both 
+MCMS and MCTS. 
+We perform a thorough empirical evaluation on seven domains: 
+Pig, EinStein w\"{u}rfelt nicht!, Can't Stop, Ra, Dominion, Carcassonne, and Backgammon.
 \end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
 
-\cite{Lanctot13MCMS}
+Bla bla~\cite{Lanctot13MCMS}
 
 
 %\acks{The authors wish to thank Hans-Martin Adorf, Don Rosenthal, 
@@ -53,10 +69,6 @@ The paper...
 %\appendix
 %\section*{Appendix A. Probability Distributions for N-Queens}
 
-
-
-
-\vskip 0.2in
 \bibliography{paper}
 \bibliographystyle{theapa}
 
