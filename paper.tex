@@ -9,9 +9,9 @@
 
 \begin{document}
 
-\title{Monte Carlo Search Algorithms for Two-Player Games with Chance Nodes}
+\title{Monte Carlo Search Techniques for Two-Player Perfect Information Games with Chance Nodes}
 
-\author{}
+\author{Authors}
 
 %\author{\name Steven Minton \email minton@ptolemy.arc.nasa.gov \\
 %       \name Andy Philips \email philips@ptolemy.arc.nasa.gov \\
@@ -31,6 +31,29 @@
 % For research notes, remove the comment character in the line below.
 % \researchnote
 
+%- Journal (JAIR?) paper on Monte Carlo search in perfect information with chance nodes
+%  - General aim is for the paper to be on modern Monte Carlo techniques for perfect information games with chance (PIC) nodes
+%
+%  - Main content overview: 
+%    - combine ideas of sparse sampling and variance reduction in mcts + new stuff
+%    - do so in a way that tells a complete story about modern Monte Carlo in PIC games
+%
+%  - JAIR asks for 20% new stuff: How is paper different from the MCMS and variance reduction papers? 
+%    Here's a candidate list:
+%
+%    - theoretical improvements based on Karnin13, http://jmlr.org/proceedings/papers/v28/karnin13.pdf
+%    - extend variance reduction to two-player setting
+%    - mcts-solver for PIC games (Marc's "implicit minimax" idea, which is essentially the same but using heuristics) 
+%      - implicit minimax can also be used with variance reduction
+%    - comparison to BRUE? (seems like the right algorithm for games with chance, esp. with transpositions)
+%    - classic alpha-beta heuristics
+%    - dynamic widths in mcms
+%    - add carcassonne and dominion to domain list? (backgammon.. probably bad idea)
+%    - is there a synthetic tree model for games with chance?
+%    - MCMS experiments with extending time length
+%    - sampling without replacement: theory and practice
+%    - Levi & Hendrik's ideas on stratified sampling for playouts
+
 \maketitle
 
 \begin{abstract}
@@ -40,30 +63,60 @@ of subtrees.
 There has been a focus on analysis of these search techniques on deterministic
 games, such as Go, Hex, and Lines of Action. 
 This paper presents a new way of sampling in two-player games with chance events, 
-such as Backgammon, adapted from sparse sampling techniques used in MDPs. 
-We introduce Monte Carlo *-Minimax Search (MCMS), an extension of the Ballard's 
+adapted from sparse sampling techniques used in MDPs. 
+We describe Monte Carlo *-Minimax Search (MCMS), an extension of the Ballard's 
 classic *-minimax algorithm that uses sparse sampling. 
 We present a thorough theoretical analysis of MCMS, giving a rate of convergence to the
 optimal strategy that does not depend on the number of states. 
-We show that sparse sample can be used in Monte Carlo Tree Search (MCTS), and compare it
-to a similar technique called double-progressive widening.
+We show that sparse sample can be used in the Monte Carlo Tree Search (MCTS) paradigm as well, 
+and compare it to a similar technique called double-progressive widening.
 We also present variance reduction techniques and show how they can be applied in both 
 MCMS and MCTS. 
-We perform a thorough empirical evaluation on seven domains: 
-Pig, EinStein w\"{u}rfelt nicht!, Can't Stop, Ra, Dominion, Carcassonne, and Backgammon.
+We perform a thorough empirical evaluation on several domains comparing the relative benefits 
+and costs of the different Monte Carlo sampling techniques. 
 \end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
 
-Bla bla~\cite{Lanctot13MCMS}
+Perfect information games with chance. 
+How and why are they different than games without chance?
+Why are they interesting?
+We will look at modern approaches and techniques for this class of games.
+Give a highlight of what is new in this paper.   
 
+\section{Background}
 
-%\acks{The authors wish to thank Hans-Martin Adorf, Don Rosenthal, 
-%Richard Franier, Peter Cheeseman and Monte Zweben for their assistance
-%and advice.  We also thank Ron Musick and our anonymous reviewers for
-%their comments.  The Space Telescope Science Institute is operated by
-%the Association of Universities for Research in Astronomy for NASA.
+Notation and terminology.
+Related word: Original sparse sampling in MDPs. AMS, FSSS.
+Two major search paradigms: minimax and MCTS (how are they different? why do we care... for this paper?)
+Basic variance reduction techniques. 
+
+\section{Sparse Sampling}
+
+Overview of how to adapt sparse sampling to adversarial search in both minimax and MCTS.
+
+\subsection{Monte Carlo *-Minimax}
+
+MCMS~\cite{Lanctot13MCMS}
+
+\subsection{Monte Carlo Tree Search}
+
+Point out problem with DPW. Abdallah's suggested fix. Describe MCTS-SS and Rotating MCTS-SS. Consistency and comparison to DPW?
+
+\section{Variance Reduction Techniques}
+
+In games of chance, especially Monte Carlo techniques, variance is a problem. Describe how we apply variance reduction in search.
+Describe how to apply in minimax and MCTS. 
+
+\section{Experimental Evaluation}
+
+Thorough experimental evaluation.
+
+\subsection{Conclusion}
+
+%\acks{
+% Acknowledgements  
 %}
 
 %\appendix
